@@ -22,16 +22,20 @@ var Element18 = document.getElementById('Element-00');
 var Element19 = document.getElementById('Element-,');
 var Element20 = document.getElementById('Element-=');
 
-var endresult = 0;
+var firstresult = 0;
+var secondresult = 0;
 var power = 10;
 var signs = "";
-var result = "";
+
 
 
 Element1.addEventListener('click', function () {
 
+	firstresult = 0;
+	secondresult = 0;
 	endresult = 0;
 	final_result.innerHTML = 0;
+	signs = "";
 });
 
 Element16.addEventListener('click', function () {
@@ -42,284 +46,110 @@ Element8.addEventListener('click', function () {
     signs = "x";
 });
 
-
 Element12.addEventListener('click', function () {
 	signs = "-";
 });
 
-Element20.addEventListener('click', function () {
-	signs = "";
-	final_result.innerHTML = endresult;
-	endresult = 0;
+Element4.addEventListener('click', function () {
+	signs = "/";
 });
 
-Element5.addEventListener('click', function () {
-	if (endresult == 0)
+Element3.addEventListener('click', function () {
+	signs = "%";
+});
+
+Element20.addEventListener('click', function () {
+
+	if (signs == "+")
 	{
-	 	final_result.innerHTML = 7;
-		endresult += 7;
-	}
-	else if (signs == "+")
-	{
-		endresult += 7;
-		signs = "";
+		endresult = firstresult + secondresult;
 	}
 	else if (signs == "-")
 	{
-		endresult -= 7;
-		signs = "";
+		endresult = firstresult - secondresult;
 	}
 	else if (signs == "x")
 	{
-		endresult *= 7;
-		signs = "";
+		endresult = firstresult * secondresult;
+	}
+	else if (signs == "/")
+	{
+		endresult = firstresult / secondresult;
+	}
+	else if (signs == "%")
+	{
+		endresult = firstresult % secondresult;
+	}
+	final_result.innerHTML = endresult;
+	firstresult = 0;
+	secondresult = 0;
+	endresult = 0;
+	signs = "";
+});
+
+function makegrid(eachone)
+{
+	if (firstresult == 0)
+	{
+	 	final_result.innerHTML = eachone;
+		firstresult += eachone;
+	}
+	else if (signs == "+" || signs == "-" || signs == "x" || signs == "%" || signs == "/")
+	{
+		if (secondresult == 0)
+		{
+			secondresult += eachone;
+			final_result.innerHTML = secondresult;
+		}
+		else
+		{
+			secondresult = secondresult * power;
+			secondresult += eachone;
+			final_result.innerHTML = secondresult;
+		}
 	}
 	else
 	{
 		signs = "";
-		endresult = endresult * power;
-		endresult += 7;
-		final_result.innerHTML = endresult;
+		firstresult = firstresult * power;
+		firstresult += eachone;
+		final_result.innerHTML = firstresult;
 	}
+}
+
+Element5.addEventListener('click', function () {
+	makegrid(7);
 });
 
 Element6.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 8;
-		endresult += 8;
-	}
-	else if (signs == "+")
-	{
-		endresult += 8;
-		signs = "";
-	}
-	else if (signs == "-")
-	{
-		endresult -= 8;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 8;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 8;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(8);
 });
 
 Element7.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 9;
-		endresult += 9;
-	}
-	else if (signs == "+")
-	{
-		endresult += 9;
-		signs = "";
-	}
-	else if (signs == "-")
-	{
-		endresult -= 9;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 9;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 9;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(9);
 });
 
 Element9.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 4;
-		endresult += 4;
-	}
-	else if (signs == "+")
-	{
-		endresult += 4;
-		signs = "";
-	}
-	else if (signs == "-")
-	{
-		endresult -= 4;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 4;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 4;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(4);
 });
 
 Element10.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 5;
-		endresult += 5;
-	}
-	else if (signs == "+")
-	{
-		endresult += 5;
-		signs = "";
-	}
-	else if (signs == "-")
-	{
-		endresult -= 5;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 5;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 5;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(5);
 });
 
 Element11.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 6;
-		endresult += 6;
-	}
-	else if (signs == "+")
-	{
-		endresult += 6;
-		signs = "";
-	}
-	else if (signs == "-")
-	{
-		endresult -= 6;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 6;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 6;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(6);
 });
 
 
 Element13.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 1;
-		endresult += 1;
-	}
-	else if (signs == "+")
-	{
-		endresult += 1;
-		signs = "";
-	}
-	else if (signs == "-")
-	{
-		endresult -= 1;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 1;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 1;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(1);
 });
 
 Element14.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 2;
-		endresult += 2;
-	}
-	else if (signs == "+")
-	{
-		endresult += 2;
-		signs = "";
-	}
-	else if (signs == "-")
-	{
-		endresult -= 2;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 2;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 2;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(2);
 });
 
 Element15.addEventListener('click', function () {
-	if (endresult == 0)
-	{
-	 	final_result.innerHTML = 3;
-		endresult += 3;
-	}
-	else if (signs == "+")
-	{
-		endresult += 3;
-		signs = "";
-	}
-	else if (signs == "+")
-	{
-		endresult += 3;
-		signs = "";
-	}
-	else if (signs == "x")
-	{
-		endresult *= 3;
-		signs = "";
-	}
-	else
-	{
-		signs = "";
-		endresult = endresult * power;
-		endresult += 3;
-		final_result.innerHTML = endresult;
-	}
+	makegrid(3);
 });
