@@ -27,8 +27,6 @@ var secondresult = 0;
 var power = 10;
 var signs = "";
 
-
-
 Element1.addEventListener('click', function () {
 
 	firstresult = 0;
@@ -152,4 +150,8 @@ Element14.addEventListener('click', function () {
 
 Element15.addEventListener('click', function () {
 	makegrid(3);
+});
+
+Element17.addEventListener('click', function () {
+	makegrid(0);
 });

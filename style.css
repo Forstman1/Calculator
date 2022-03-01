@@ -1,4 +1,8 @@
 
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
 .big-container {
     display: grid;
     grid-template-columns: repeat(1, 100%);
@@ -43,6 +47,7 @@
     align-items: center;
     width: 50%;
     background-color: #505050;
+    color: white;
     border-color: black;
     border: 10% solid;
     border-radius: 100%;
@@ -62,6 +67,7 @@
     align-items: center;
     width: 50%;
     background-color: orange;
+    color: white;
     border: 10% solid;
     border-radius: 100%;
 }
